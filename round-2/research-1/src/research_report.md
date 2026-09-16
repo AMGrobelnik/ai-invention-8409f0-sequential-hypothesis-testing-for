@@ -1,0 +1,58 @@
+# Lightweight MinHash Near-Duplicate Detection
+
+## Summary
+
+The artifact surveys the lightweight MinHash pipeline for approximate near-duplicate detection in text corpora: k-shingle representation, Jaccard similarity estimation via MinHash signatures, and locality-sensitive hashing for sublinear candidate retrieval. It summarizes practical guidance from authoritative surveys and implementations, including parameter choices, computational tradeoffs, and key limitations. The findings indicate that MinHash LSH is well suited for detecting lexical near-duplicates at scale, but it does not capture semantic paraphrasing and its effectiveness depends heavily on threshold, signature width, and banding configuration. Contradictory and cautionary evidence is included: the method can miss semantically equivalent rewrites, requires post-filtering to control false positives, and becomes less precise for short texts or high-similarity regimes.
+
+## Research Findings
+
+A lightweight detector for near-identical text spans can be built with MinHash plus Locality-Sensitive Hashing (LSH), but its reliability depends on the kind of similarity you care about and on careful parameter choices.  
+
+**Core pipeline.**  The standard method turns each document or span into a set of overlapping substrings, usually character-level k-shingles with k between 5 and 9 [3]. From that set, a MinHash signature of fixed width is computed by taking minima under multiple hash functions; the fraction of equal signature entries approximates the Jaccard similarity of the original shingle sets [1]. To avoid O(n^2) pair comparisons, LSH bands the signature into smaller chunks and hashes each chunk; candidate pairs are those that collide in at least one band [4, 7]. This reduces search cost from quadratic toward linear time while preserving a tunable similarity threshold.  
+
+**Why it works for lexical near-duplicates.**  Jaccard similarity directly measures shingle overlap, so verbatim copies, lightly edited reproductions, and boilerplate repetitions produce high scores [3, 5]. MinHash preserves that behavior probabilistically: for identical sets the signature match probability is 1; for disjoint sets it is 0; and for partial overlap it equals the Jaccard index in expectation [1]. Empirical reports show that for large web corpora MinHash LSH can find almost all pairs with significant overlap in a small fraction of the time needed for exact all-pairs comparison [2, 8].  
+
+**Key parameters and their effect.**  Signature width controls estimation variance: more hash functions lower variance but increase memory and CPU cost [1, 8]. Band size controls the operating point of LSH: narrow bands raise recall and lower precision, while wide bands do the opposite [4, 7]. The similarity threshold sets the decision boundary; in practice corpus cleanup pipelines often use 0.8 when comparing document pairs with character-level shingles [3]. Short texts need smaller k and larger signatures, otherwise unrelated short strings spuriously share shingles [3].  
+
+**Limitations and failure modes.**  MinHash detects lexical similarity, not semantic equivalence [2, 6, 9]. Two passages that express the same idea with different wording can have near-zero Jaccard similarity and therefore will not be flagged [2, 6]. This is a hard limitation for paraphrase or translation detection. For very short spans, shingle sets are tiny, variance is high, and collision-based methods degrade [3]. LSH also introduces false positives: candidates that collide in a band but do not actually exceed the Jaccard threshold, so a final exact Jaccard check is usually required [2, 5]. Conversely, false negatives occur when the signature width is too small or the threshold is set too aggressively [1, 9].  
+
+**Practical tradeoff summary.**  MinHash LSH is attractive when the corpus is large, exact all-pairs comparison is infeasible, and the goal is to catch near-duplicate copies rather than semantic paraphrases. It is lightweight in the sense that signatures are small and lookups are fast, but not free: preprocessing requires hashing all shingles, and bandwidth versus precision must be tuned to the corpus [3, 7]. For short spans or paraphrase-heavy settings, methods that incorporate semantic similarity are needed instead [2, 6].  
+
+**Confidence and what would change it.**  The characterization above is supported by multiple surveys, textbook treatments, and implementation reports, so confidence is moderate to high for lexical near-duplicate detection. Confidence would decrease if the task explicitly required detecting semantic paraphrases, translation, or very short overlapping phrases, because those regimes are where MinHash LSH has known blind spots [2, 3, 6].
+
+## Sources
+
+[1] [Detecting Near Duplicates with Minhash](https://skeptric.com/minhash/) (Edward J. Ross; 2020) — Practical explanation of MinHash for approximate Jaccard estimation and its use in near-duplicate search, with implementation notes and error behavior.
+
+[2] [Near-duplicate Detection with Locality-Sensitive Hashing and Datasketch](https://yorko.github.io/2023/practical-near-dup-detection/) (Yury Kashnitsky; 2023) — Practical walkthrough of MinHash LSH on a real news dataset, including limitations and precision/recall considerations.
+
+[3] [MinHash: Jaccard Similarity, LSH, Near-Duplicate Detection](https://mbrenndoerfer.com/writing/minhash-algorithm-jaccard-similarity-lsh-deduplication) (Michael Brenndoerfer; 2026) — Long-form technical guide covering Jaccard similarity, shingling choices, MinHash theory, LSH, and practical corpus deduplication guidance.
+
+[4] [Locality-sensitive hashing](https://en.wikipedia.org/wiki/Locality-sensitive_hashing) — Reference overview of LSH families, amplification via AND/OR constructions, and general theoretical properties relevant to similarity search.
+
+[5] [Text Similarity using K-Shingling, Minhashing and LSH](https://towardsai.com/p/l/text-similarity-using-k-shingling-minhashing-and-lshlocality-sensitive-hashing) (Supriya Ghosh; 2021) — Step-by-step tutorial on k-shingling, characteristic matrices, and converting documents into comparable shingle sets.
+
+[6] [Near-Duplicate Text Finder: Detect Text With Slight Differences](https://data.learnmodernpython.com/near-duplicate-text-finder-detect-text-with-slight-differences/) — Practical overview of approaches for near-duplicate text detection and their relative strengths and weaknesses.
+
+[7] [text-dedup: All-in-one text de-duplication](https://github.com/ChenghaoMou/text-dedup) (Chenghao Mou) — Open-source tool combining MinHash LSH, SimHash, and suffix-array exact deduplication for large-scale text corpora.
+
+[8] [LSH examples and introduction](https://github.com/mattilyra/LSH) — GitHub repository with LSH example notebooks for document deduplication using shingles and MinHash signatures.
+
+[9] [Data-Intensive Distributed Computing Part 6 slides](https://lintool.github.io/bigdata-2018w/slides/didp-part06c.pptx) (2018) — Course slides mentioning MinHash false negatives, signature concatenation, and practical limitations for near-duplicate detection.
+
+[10] [Near-duplicate Detection with Locality-Sensitive Hashing and Datasketch](https://yorko.github.io/2023/practical-near-dup-detection/) (Yury Kashnitsky; 2023) — Practical walkthrough of MinHash LSH on a real news dataset, including limitations and precision/recall considerations.
+
+## Verification
+
+Numbered citations resolve to unique listed sources. Passage checks test text occurrence, not claim truth or entailment. Author/year metadata and locators are not independently verified. Details: `research_verification.json`.
+
+No optional exact passages supplied; no passage checks performed.
+
+## Follow-up Questions
+
+- How can MinHash or LSH be adapted to catch semantic paraphrases instead of only lexical overlap?
+- What empirical threshold and signature-width settings work best for short text spans versus long documents?
+- How does MinHash LSH compare to SimHash or dense-embedding ANN for large-scale corpus deduplication?
+
+---
+*Generated by AI Inventor Pipeline*

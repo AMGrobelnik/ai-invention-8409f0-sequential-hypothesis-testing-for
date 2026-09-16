@@ -1,0 +1,21 @@
+{
+  "valid": true,
+  "file_errors": [],
+  "schema_errors": [],
+  "content_warnings": [
+    "research_out.json: Sources with uncited indices: [10]",
+    "structured_output: Sources with uncited indices: [10]"
+  ],
+  "files_found": {
+    "research_out.json": {
+      "exists": true,
+      "path": "/home/adrian/projects/ai-inventor-runtest/aii_data/users/admin/runs/run_kDDM2LtKR7zJ/3_invention_loop/iter_2/gen_art/gen_art_research_1/research_out.json",
+      "source_count": 10,
+      "size": 9615
+    }
+  },
+  "source_count": 10,
+  "checked_at": "2026-09-16T19:45:37.015587+00:00",
+  "passage_check_scope": "Case/whitespace-normalized text occurrence at the source URL (or archive fallback). Not claim entailment, locator verification, or author/year verification. status=error means unverified, not a misquotation.",
+  "passages": []
+}
