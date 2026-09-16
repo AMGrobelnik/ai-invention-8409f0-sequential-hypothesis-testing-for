@@ -1,0 +1,914 @@
+{
+  "metadata": {
+    "evaluation_name": "SPRT MinHash Evaluation",
+    "description": "Comprehensive evaluation of SPRT MinHash experiment",
+    "timestamp": "2026-09-16T21:52:26"
+  },
+  "metrics_agg": {
+    "total_examples": 2400,
+    "configs_evaluated": 6,
+    "ground_truth_sprt_precision": 1.0,
+    "ground_truth_sprt_recall": 0.0175,
+    "ground_truth_sprt_f1": 0.0344,
+    "ground_truth_sprt_precision_ci_95": [
+      0.8454,
+      1.0
+    ],
+    "ground_truth_sprt_recall_ci_95": [
+      0.0115,
+      0.0266
+    ],
+    "ground_truth_sprt_f1_ci_95": [
+      0.0278,
+      0.0425
+    ],
+    "ground_truth_exhaustive_precision": 1.0,
+    "ground_truth_exhaustive_recall": 0.015,
+    "ground_truth_exhaustive_f1": 0.0296,
+    "ground_truth_exhaustive_precision_ci_95": [
+      0.8241,
+      1.0
+    ],
+    "ground_truth_exhaustive_recall_ci_95": [
+      0.0095,
+      0.0236
+    ],
+    "ground_truth_exhaustive_f1_ci_95": [
+      0.0235,
+      0.0371
+    ],
+    "mcnemar_chi2": 0.5714,
+    "mcnemar_p_value": 0.449692,
+    "agreement_proportion": 0.9971,
+    "agreement_count": 2393,
+    "agreement_ci_95": [
+      0.994,
+      0.9986
+    ],
+    "agreement_p_value_vs_0.95": 0.0,
+    "type_I_FPR_rate": 0.0017,
+    "type_I_FPR_count": 4,
+    "type_I_FPR_ci_95": [
+      0.0006,
+      0.0043
+    ],
+    "type_I_FPR_p_value": 1.0,
+    "type_I_within_alpha": true,
+    "type_II_FNR_rate": 0.2729,
+    "type_II_FNR_count": 655,
+    "type_II_FNR_ci_95": [
+      0.2555,
+      0.2911
+    ],
+    "type_II_FNR_p_value": 0.0,
+    "type_II_within_beta": false
+  },
+  "datasets": [
+    {
+      "dataset": "synthetic_stackoverflow",
+      "examples": [
+        {
+          "input": "Pair (120, 699): k=128, alpha=0.05, beta=0.05",
+          "output": "{\"true_label\": false, \"true_jaccard\": 0.1763, \"sprt_pred\": false, \"exhaustive_pred\": false, \"components_used\": 8, \"k\": 128, \"alpha\": 0.05, \"beta\": 0.05, \"final_llr\": -3.2437}",
+          "eval_sprt_precision": 1.0,
+          "eval_sprt_recall": 0.0175,
+          "eval_sprt_f1": 0.0344
+        },
+        {
+          "input": "Pair (179, 173): k=128, alpha=0.05, beta=0.05",
+          "output": "{\"true_label\": false, \"true_jaccard\": 0.0992, \"sprt_pred\": false, \"exhaustive_pred\": false, \"components_used\": 8, \"k\": 128, \"alpha\": 0.05, \"beta\": 0.05, \"final_llr\": -3.2437}",
+          "eval_sprt_precision": 1.0,
+          "eval_sprt_recall": 0.0175,
+          "eval_sprt_f1": 0.0344
+        },
+        {
+          "input": "Pair (360, 512): k=128, alpha=0.05, beta=0.05",
+          "output": "{\"true_label\": false, \"true_jaccard\": 0.185, \"sprt_pred\": false, \"exhaustive_pred\": false, \"components_used\": 8, \"k\": 128, \"alpha\": 0.05, \"beta\": 0.05, \"final_llr\": -3.2437}",
+          "eval_sprt_precision": 1.0,
+          "eval_sprt_recall": 0.0175,
+          "eval_sprt_f1": 0.0344
+        }
+      ]
+    }
+  ],
+  "detailed_results": {
+    "ground_truth_metrics": {
+      "sprt": {
+        "precision": 1.0,
+        "recall": 0.0175,
+        "f1": 0.0344,
+        "precision_ci_95": [
+          0.8454,
+          1.0
+        ],
+        "recall_ci_95": [
+          0.0115,
+          0.0266
+        ],
+        "f1_ci_95": [
+          0.0278,
+          0.0425
+        ],
+        "tp": 21,
+        "tn": 1200,
+        "fp": 0,
+        "fn": 1179
+      },
+      "exhaustive": {
+        "precision": 1.0,
+        "recall": 0.015,
+        "f1": 0.0296,
+        "precision_ci_95": [
+          0.8241,
+          1.0
+        ],
+        "recall_ci_95": [
+          0.0095,
+          0.0236
+        ],
+        "f1_ci_95": [
+          0.0235,
+          0.0371
+        ],
+        "tp": 18,
+        "tn": 1200,
+        "fp": 0,
+        "fn": 1182
+      },
+      "mcnemar": {
+        "chi2": 0.5714,
+        "p_value": 0.449692
+      }
+    },
+    "agreement_metrics": {
+      "agreement_proportion": 0.9971,
+      "agreement_count": 2393,
+      "n": 2400,
+      "agreement_ci_95": [
+        0.994,
+        0.9986
+      ],
+      "binomial_test_p_value_vs_0.95": 0.0
+    },
+    "component_savings": {
+      "128": {
+        "mean_savings": 0.9072,
+        "savings_ci_95": [
+          0.9026,
+          0.9112
+        ],
+        "t_test_statistic": 183.1191,
+        "t_test_p_value": 0.0,
+        "n": 800
+      },
+      "256": {
+        "mean_savings": 0.9511,
+        "savings_ci_95": [
+          0.9476,
+          0.9546
+        ],
+        "t_test_statistic": 238.4679,
+        "t_test_p_value": 0.0,
+        "n": 800
+      },
+      "512": {
+        "mean_savings": 0.9771,
+        "savings_ci_95": [
+          0.9747,
+          0.9788
+        ],
+        "t_test_statistic": 456.859,
+        "t_test_p_value": 0.0,
+        "n": 800
+      }
+    },
+    "error_rate_validation": {
+      "type_I_FPR": {
+        "rate": 0.0017,
+        "count": 4,
+        "ci_95": [
+          0.0006,
+          0.0043
+        ],
+        "alpha_bound": 0.05,
+        "one_sided_p_value": 1.0,
+        "within_alpha_bound": true
+      },
+      "type_II_FNR": {
+        "rate": 0.2729,
+        "count": 655,
+        "ci_95": [
+          0.2555,
+          0.2911
+        ],
+        "beta_bound": 0.05,
+        "one_sided_p_value": 0.0,
+        "within_beta_bound": false
+      }
+    },
+    "expected_sample_size": {
+      "k=128_a=0.01_b=0.01": {
+        "empirical_ess": 14.32,
+        "wald_lehmann_ess": 55.53,
+        "approximation_error": 2.8779,
+        "wald_boundary_note": "Wald approximation assumes fixed boundaries and no overshoot; boundary crossing may cause empirical ESS to deviate."
+      },
+      "k=128_a=0.05_b=0.05": {
+        "empirical_ess": 9.45,
+        "wald_lehmann_ess": 32.68,
+        "approximation_error": 2.4599,
+        "wald_boundary_note": "Wald approximation assumes fixed boundaries and no overshoot; boundary crossing may cause empirical ESS to deviate."
+      },
+      "k=256_a=0.01_b=0.01": {
+        "empirical_ess": 14.91,
+        "wald_lehmann_ess": 55.53,
+        "approximation_error": 2.7232,
+        "wald_boundary_note": "Wald approximation assumes fixed boundaries and no overshoot; boundary crossing may cause empirical ESS to deviate."
+      },
+      "k=256_a=0.05_b=0.05": {
+        "empirical_ess": 10.13,
+        "wald_lehmann_ess": 32.68,
+        "approximation_error": 2.2259,
+        "wald_boundary_note": "Wald approximation assumes fixed boundaries and no overshoot; boundary crossing may cause empirical ESS to deviate."
+      },
+      "k=512_a=0.01_b=0.01": {
+        "empirical_ess": 14.41,
+        "wald_lehmann_ess": 55.53,
+        "approximation_error": 2.8523,
+        "wald_boundary_note": "Wald approximation assumes fixed boundaries and no overshoot; boundary crossing may cause empirical ESS to deviate."
+      },
+      "k=512_a=0.05_b=0.05": {
+        "empirical_ess": 9.03,
+        "wald_lehmann_ess": 32.68,
+        "approximation_error": 2.6189,
+        "wald_boundary_note": "Wald approximation assumes fixed boundaries and no overshoot; boundary crossing may cause empirical ESS to deviate."
+      }
+    },
+    "delta_sensitivity": {
+      "k=128_a=0.05_b=0.05": {
+        "0.05": {
+          "agreement_with_exhaustive": 0.9875,
+          "agreement_ci_95": [
+            0.9711,
+            0.9946
+          ],
+          "precision": 1.0,
+          "recall": 0.035,
+          "f1": 0.0676,
+          "mean_savings": 0.929,
+          "savings_ci_95": [
+            0.9256,
+            0.9318
+          ],
+          "type_I_rate": 0.0075,
+          "type_II_rate": 0.27,
+          "empirical_ess": 9.08,
+          "n": 400
+        },
+        "0.1": {
+          "agreement_with_exhaustive": 0.955,
+          "agreement_ci_95": [
+            0.93,
+            0.9713
+          ],
+          "precision": 0.95,
+          "recall": 0.095,
+          "f1": 0.1727,
+          "mean_savings": 0.935,
+          "savings_ci_95": [
+            0.9337,
+            0.9361
+          ],
+          "type_I_rate": 0.0225,
+          "type_II_rate": 0.2525,
+          "empirical_ess": 8.31,
+          "n": 400
+        },
+        "0.15": {
+          "agreement_with_exhaustive": 0.9425,
+          "agreement_ci_95": [
+            0.9152,
+            0.9614
+          ],
+          "precision": 0.88,
+          "recall": 0.11,
+          "f1": 0.1956,
+          "mean_savings": 0.9596,
+          "savings_ci_95": [
+            0.9589,
+            0.9603
+          ],
+          "type_I_rate": 0.0325,
+          "type_II_rate": 0.25,
+          "empirical_ess": 5.17,
+          "n": 400
+        },
+        "0.2": {
+          "agreement_with_exhaustive": 0.9375,
+          "agreement_ci_95": [
+            0.9094,
+            0.9573
+          ],
+          "precision": 0.8519,
+          "recall": 0.115,
+          "f1": 0.2026,
+          "mean_savings": 0.9678,
+          "savings_ci_95": [
+            0.9672,
+            0.9683
+          ],
+          "type_I_rate": 0.0375,
+          "type_II_rate": 0.25,
+          "empirical_ess": 4.12,
+          "n": 400
+        }
+      },
+      "k=128_a=0.01_b=0.01": {
+        "0.05": {
+          "agreement_with_exhaustive": 0.9875,
+          "agreement_ci_95": [
+            0.9711,
+            0.9946
+          ],
+          "precision": 1.0,
+          "recall": 0.025,
+          "f1": 0.0488,
+          "mean_savings": 0.8929,
+          "savings_ci_95": [
+            0.8874,
+            0.8973
+          ],
+          "type_I_rate": 0.0025,
+          "type_II_rate": 0.27,
+          "empirical_ess": 13.7,
+          "n": 400
+        },
+        "0.1": {
+          "agreement_with_exhaustive": 0.9675,
+          "agreement_ci_95": [
+            0.9452,
+            0.9809
+          ],
+          "precision": 1.0,
+          "recall": 0.075,
+          "f1": 0.1395,
+          "mean_savings": 0.9009,
+          "savings_ci_95": [
+            0.8983,
+            0.903
+          ],
+          "type_I_rate": 0.015,
+          "type_II_rate": 0.2575,
+          "empirical_ess": 12.69,
+          "n": 400
+        },
+        "0.15": {
+          "agreement_with_exhaustive": 0.945,
+          "agreement_ci_95": [
+            0.9181,
+            0.9634
+          ],
+          "precision": 0.9167,
+          "recall": 0.11,
+          "f1": 0.1964,
+          "mean_savings": 0.9353,
+          "savings_ci_95": [
+            0.934,
+            0.9363
+          ],
+          "type_I_rate": 0.0325,
+          "type_II_rate": 0.2525,
+          "empirical_ess": 8.29,
+          "n": 400
+        },
+        "0.2": {
+          "agreement_with_exhaustive": 0.9375,
+          "agreement_ci_95": [
+            0.9094,
+            0.9573
+          ],
+          "precision": 0.8519,
+          "recall": 0.115,
+          "f1": 0.2026,
+          "mean_savings": 0.9517,
+          "savings_ci_95": [
+            0.9508,
+            0.9525
+          ],
+          "type_I_rate": 0.0375,
+          "type_II_rate": 0.25,
+          "empirical_ess": 6.18,
+          "n": 400
+        }
+      },
+      "k=256_a=0.05_b=0.05": {
+        "0.05": {
+          "agreement_with_exhaustive": 0.9875,
+          "agreement_ci_95": [
+            0.9711,
+            0.9946
+          ],
+          "precision": 1.0,
+          "recall": 0.05,
+          "f1": 0.0952,
+          "mean_savings": 0.9661,
+          "savings_ci_95": [
+            0.9652,
+            0.9669
+          ],
+          "type_I_rate": 0.0,
+          "type_II_rate": 0.255,
+          "empirical_ess": 8.67,
+          "n": 400
+        },
+        "0.1": {
+          "agreement_with_exhaustive": 0.9825,
+          "agreement_ci_95": [
+            0.9643,
+            0.9915
+          ],
+          "precision": 0.9167,
+          "recall": 0.055,
+          "f1": 0.1038,
+          "mean_savings": 0.9672,
+          "savings_ci_95": [
+            0.9665,
+            0.9678
+          ],
+          "type_I_rate": 0.005,
+          "type_II_rate": 0.255,
+          "empirical_ess": 8.4,
+          "n": 400
+        },
+        "0.15": {
+          "agreement_with_exhaustive": 0.9675,
+          "agreement_ci_95": [
+            0.9452,
+            0.9809
+          ],
+          "precision": 0.8889,
+          "recall": 0.08,
+          "f1": 0.1468,
+          "mean_savings": 0.9795,
+          "savings_ci_95": [
+            0.9791,
+            0.9799
+          ],
+          "type_I_rate": 0.015,
+          "type_II_rate": 0.25,
+          "empirical_ess": 5.24,
+          "n": 400
+        },
+        "0.2": {
+          "agreement_with_exhaustive": 0.955,
+          "agreement_ci_95": [
+            0.93,
+            0.9713
+          ],
+          "precision": 0.7391,
+          "recall": 0.085,
+          "f1": 0.1525,
+          "mean_savings": 0.9838,
+          "savings_ci_95": [
+            0.9836,
+            0.9841
+          ],
+          "type_I_rate": 0.025,
+          "type_II_rate": 0.2475,
+          "empirical_ess": 4.14,
+          "n": 400
+        }
+      },
+      "k=256_a=0.01_b=0.01": {
+        "0.05": {
+          "agreement_with_exhaustive": 0.9925,
+          "agreement_ci_95": [
+            0.9782,
+            0.9974
+          ],
+          "precision": 1.0,
+          "recall": 0.04,
+          "f1": 0.0769,
+          "mean_savings": 0.9487,
+          "savings_ci_95": [
+            0.9469,
+            0.9502
+          ],
+          "type_I_rate": 0.0,
+          "type_II_rate": 0.26,
+          "empirical_ess": 13.13,
+          "n": 400
+        },
+        "0.1": {
+          "agreement_with_exhaustive": 0.9825,
+          "agreement_ci_95": [
+            0.9643,
+            0.9915
+          ],
+          "precision": 1.0,
+          "recall": 0.06,
+          "f1": 0.1132,
+          "mean_savings": 0.9509,
+          "savings_ci_95": [
+            0.95,
+            0.9517
+          ],
+          "type_I_rate": 0.0025,
+          "type_II_rate": 0.2525,
+          "empirical_ess": 12.56,
+          "n": 400
+        },
+        "0.15": {
+          "agreement_with_exhaustive": 0.9725,
+          "agreement_ci_95": [
+            0.9514,
+            0.9846
+          ],
+          "precision": 0.9375,
+          "recall": 0.075,
+          "f1": 0.1389,
+          "mean_savings": 0.9672,
+          "savings_ci_95": [
+            0.9666,
+            0.9679
+          ],
+          "type_I_rate": 0.0125,
+          "type_II_rate": 0.2525,
+          "empirical_ess": 8.38,
+          "n": 400
+        },
+        "0.2": {
+          "agreement_with_exhaustive": 0.97,
+          "agreement_ci_95": [
+            0.9483,
+            0.9828
+          ],
+          "precision": 0.9412,
+          "recall": 0.08,
+          "f1": 0.1475,
+          "mean_savings": 0.9752,
+          "savings_ci_95": [
+            0.9746,
+            0.9757
+          ],
+          "type_I_rate": 0.0125,
+          "type_II_rate": 0.25,
+          "empirical_ess": 6.35,
+          "n": 400
+        }
+      },
+      "k=512_a=0.05_b=0.05": {
+        "0.05": {
+          "agreement_with_exhaustive": 0.995,
+          "agreement_ci_95": [
+            0.982,
+            0.9986
+          ],
+          "precision": 1.0,
+          "recall": 0.02,
+          "f1": 0.0392,
+          "mean_savings": 0.9832,
+          "savings_ci_95": [
+            0.9827,
+            0.9836
+          ],
+          "type_I_rate": 0.0025,
+          "type_II_rate": 0.2725,
+          "empirical_ess": 8.61,
+          "n": 400
+        },
+        "0.1": {
+          "agreement_with_exhaustive": 0.985,
+          "agreement_ci_95": [
+            0.9677,
+            0.9931
+          ],
+          "precision": 1.0,
+          "recall": 0.04,
+          "f1": 0.0769,
+          "mean_savings": 0.9837,
+          "savings_ci_95": [
+            0.9834,
+            0.9839
+          ],
+          "type_I_rate": 0.005,
+          "type_II_rate": 0.265,
+          "empirical_ess": 8.35,
+          "n": 400
+        },
+        "0.15": {
+          "agreement_with_exhaustive": 0.9775,
+          "agreement_ci_95": [
+            0.9578,
+            0.9881
+          ],
+          "precision": 0.8182,
+          "recall": 0.045,
+          "f1": 0.0853,
+          "mean_savings": 0.9897,
+          "savings_ci_95": [
+            0.9895,
+            0.9899
+          ],
+          "type_I_rate": 0.01,
+          "type_II_rate": 0.2625,
+          "empirical_ess": 5.26,
+          "n": 400
+        },
+        "0.2": {
+          "agreement_with_exhaustive": 0.9725,
+          "agreement_ci_95": [
+            0.9514,
+            0.9846
+          ],
+          "precision": 0.7692,
+          "recall": 0.05,
+          "f1": 0.0939,
+          "mean_savings": 0.9918,
+          "savings_ci_95": [
+            0.9916,
+            0.9919
+          ],
+          "type_I_rate": 0.0125,
+          "type_II_rate": 0.26,
+          "empirical_ess": 4.22,
+          "n": 400
+        }
+      },
+      "k=512_a=0.01_b=0.01": {
+        "0.05": {
+          "agreement_with_exhaustive": 0.995,
+          "agreement_ci_95": [
+            0.982,
+            0.9986
+          ],
+          "precision": 1.0,
+          "recall": 0.02,
+          "f1": 0.0392,
+          "mean_savings": 0.9748,
+          "savings_ci_95": [
+            0.9741,
+            0.9755
+          ],
+          "type_I_rate": 0.0025,
+          "type_II_rate": 0.2725,
+          "empirical_ess": 12.89,
+          "n": 400
+        },
+        "0.1": {
+          "agreement_with_exhaustive": 0.985,
+          "agreement_ci_95": [
+            0.9677,
+            0.9931
+          ],
+          "precision": 1.0,
+          "recall": 0.04,
+          "f1": 0.0769,
+          "mean_savings": 0.9756,
+          "savings_ci_95": [
+            0.9751,
+            0.976
+          ],
+          "type_I_rate": 0.0025,
+          "type_II_rate": 0.2625,
+          "empirical_ess": 12.5,
+          "n": 400
+        },
+        "0.15": {
+          "agreement_with_exhaustive": 0.9775,
+          "agreement_ci_95": [
+            0.9578,
+            0.9881
+          ],
+          "precision": 0.9091,
+          "recall": 0.05,
+          "f1": 0.0948,
+          "mean_savings": 0.9837,
+          "savings_ci_95": [
+            0.9833,
+            0.9839
+          ],
+          "type_I_rate": 0.0075,
+          "type_II_rate": 0.26,
+          "empirical_ess": 8.37,
+          "n": 400
+        },
+        "0.2": {
+          "agreement_with_exhaustive": 0.975,
+          "agreement_ci_95": [
+            0.9546,
+            0.9864
+          ],
+          "precision": 0.8333,
+          "recall": 0.05,
+          "f1": 0.0943,
+          "mean_savings": 0.9876,
+          "savings_ci_95": [
+            0.9873,
+            0.9879
+          ],
+          "type_I_rate": 0.01,
+          "type_II_rate": 0.26,
+          "empirical_ess": 6.33,
+          "n": 400
+        }
+      }
+    },
+    "parameter_grid": {
+      "k=128_a=0.01_b=0.01": {
+        "n_pairs": 400,
+        "accuracy": 0.5025,
+        "precision": 1.0,
+        "recall": 0.005,
+        "f1": 0.01,
+        "agreement_with_exhaustive": 0.9975,
+        "mean_components_used": 14.32,
+        "mean_savings": 0.8881,
+        "k": 128,
+        "alpha": 0.01,
+        "beta": 0.01
+      },
+      "k=128_a=0.05_b=0.05": {
+        "n_pairs": 400,
+        "accuracy": 0.5075,
+        "precision": 1.0,
+        "recall": 0.015,
+        "f1": 0.0296,
+        "agreement_with_exhaustive": 0.9925,
+        "mean_components_used": 9.45,
+        "mean_savings": 0.9262,
+        "k": 128,
+        "alpha": 0.05,
+        "beta": 0.05
+      },
+      "k=256_a=0.01_b=0.01": {
+        "n_pairs": 400,
+        "accuracy": 0.5125,
+        "precision": 1.0,
+        "recall": 0.025,
+        "f1": 0.0488,
+        "agreement_with_exhaustive": 1.0,
+        "mean_components_used": 14.91,
+        "mean_savings": 0.9417,
+        "k": 256,
+        "alpha": 0.01,
+        "beta": 0.01
+      },
+      "k=256_a=0.05_b=0.05": {
+        "n_pairs": 400,
+        "accuracy": 0.515,
+        "precision": 1.0,
+        "recall": 0.03,
+        "f1": 0.0583,
+        "agreement_with_exhaustive": 0.9975,
+        "mean_components_used": 10.13,
+        "mean_savings": 0.9604,
+        "k": 256,
+        "alpha": 0.05,
+        "beta": 0.05
+      },
+      "k=512_a=0.01_b=0.01": {
+        "n_pairs": 400,
+        "accuracy": 0.5075,
+        "precision": 1.0,
+        "recall": 0.015,
+        "f1": 0.0296,
+        "agreement_with_exhaustive": 0.9975,
+        "mean_components_used": 14.41,
+        "mean_savings": 0.9718,
+        "k": 512,
+        "alpha": 0.01,
+        "beta": 0.01
+      },
+      "k=512_a=0.05_b=0.05": {
+        "n_pairs": 400,
+        "accuracy": 0.5075,
+        "precision": 1.0,
+        "recall": 0.015,
+        "f1": 0.0296,
+        "agreement_with_exhaustive": 0.9975,
+        "mean_components_used": 9.03,
+        "mean_savings": 0.9824,
+        "k": 512,
+        "alpha": 0.05,
+        "beta": 0.05
+      }
+    },
+    "stopping_time_analysis": {
+      "bins": {
+        "[0.00, 0.20)": {
+          "n": 1140,
+          "mean_stopping_ratio": 0.0477,
+          "median_stopping_ratio": 0.0469,
+          "ci_95": [
+            0.0368,
+            0.0616
+          ]
+        },
+        "[0.20, 0.40)": {
+          "n": 312,
+          "mean_stopping_ratio": 0.0561,
+          "median_stopping_ratio": 0.0469,
+          "ci_95": [
+            0.0355,
+            0.0874
+          ]
+        },
+        "[0.40, 0.50)": {
+          "n": 276,
+          "mean_stopping_ratio": 0.0544,
+          "median_stopping_ratio": 0.0469,
+          "ci_95": [
+            0.0332,
+            0.0878
+          ]
+        },
+        "[0.50, 0.60)": {
+          "n": 228,
+          "mean_stopping_ratio": 0.0592,
+          "median_stopping_ratio": 0.0469,
+          "ci_95": [
+            0.0352,
+            0.0977
+          ]
+        },
+        "[0.60, 0.80)": {
+          "n": 444,
+          "mean_stopping_ratio": 0.0707,
+          "median_stopping_ratio": 0.0469,
+          "ci_95": [
+            0.0503,
+            0.0984
+          ]
+        }
+      },
+      "kruskal_wallis": {
+        "H_statistic": 3.8935,
+        "p_value": 0.420611,
+        "n_groups": 5
+      }
+    },
+    "composite_hypothesis": {
+      "k=128_a=0.01_b=0.01": {
+        "threshold_truncation_ess": 128.0,
+        "sprt_empirical_ess": 14.32,
+        "savings_vs_truncation": 0.8881,
+        "composite_hypothesis_note": "SPRT ESS is 14.3 vs truncation ESS of 128. SPRT saves 88.8% components on average. ",
+        "conservative_cases": 111,
+        "conservative_fraction": 0.2775,
+        "beneficial": true,
+        "framing_qualification": "SPRT's simple-hypothesis framing (H0: J<=T-d, H1: J>=T+d) is beneficial when savings > 0 and error rates are within bounds; conservative near the indifference region boundary where true J falls within..."
+      },
+      "k=128_a=0.05_b=0.05": {
+        "threshold_truncation_ess": 128.0,
+        "sprt_empirical_ess": 9.45,
+        "savings_vs_truncation": 0.9262,
+        "composite_hypothesis_note": "SPRT ESS is 9.4 vs truncation ESS of 128. SPRT saves 92.6% components on average. ",
+        "conservative_cases": 111,
+        "conservative_fraction": 0.2775,
+        "beneficial": true,
+        "framing_qualification": "SPRT's simple-hypothesis framing (H0: J<=T-d, H1: J>=T+d) is beneficial when savings > 0 and error rates are within bounds; conservative near the indifference region boundary where true J falls within..."
+      },
+      "k=256_a=0.01_b=0.01": {
+        "threshold_truncation_ess": 256.0,
+        "sprt_empirical_ess": 14.91,
+        "savings_vs_truncation": 0.9417,
+        "composite_hypothesis_note": "SPRT ESS is 14.9 vs truncation ESS of 256. SPRT saves 94.2% components on average. ",
+        "conservative_cases": 107,
+        "conservative_fraction": 0.2675,
+        "beneficial": true,
+        "framing_qualification": "SPRT's simple-hypothesis framing (H0: J<=T-d, H1: J>=T+d) is beneficial when savings > 0 and error rates are within bounds; conservative near the indifference region boundary where true J falls within..."
+      },
+      "k=256_a=0.05_b=0.05": {
+        "threshold_truncation_ess": 256.0,
+        "sprt_empirical_ess": 10.13,
+        "savings_vs_truncation": 0.9604,
+        "composite_hypothesis_note": "SPRT ESS is 10.1 vs truncation ESS of 256. SPRT saves 96.0% components on average. ",
+        "conservative_cases": 106,
+        "conservative_fraction": 0.265,
+        "beneficial": true,
+        "framing_qualification": "SPRT's simple-hypothesis framing (H0: J<=T-d, H1: J>=T+d) is beneficial when savings > 0 and error rates are within bounds; conservative near the indifference region boundary where true J falls within..."
+      },
+      "k=512_a=0.01_b=0.01": {
+        "threshold_truncation_ess": 512.0,
+        "sprt_empirical_ess": 14.41,
+        "savings_vs_truncation": 0.9718,
+        "composite_hypothesis_note": "SPRT ESS is 14.4 vs truncation ESS of 512. SPRT saves 97.2% components on average. ",
+        "conservative_cases": 110,
+        "conservative_fraction": 0.275,
+        "beneficial": true,
+        "framing_qualification": "SPRT's simple-hypothesis framing (H0: J<=T-d, H1: J>=T+d) is beneficial when savings > 0 and error rates are within bounds; conservative near the indifference region boundary where true J falls within..."
+      },
+      "k=512_a=0.05_b=0.05": {
+        "threshold_truncation_ess": 512.0,
+        "sprt_empirical_ess": 9.03,
+        "savings_vs_truncation": 0.9824,
+        "composite_hypothesis_note": "SPRT ESS is 9.0 vs truncation ESS of 512. SPRT saves 98.2% components on average. ",
+        "conservative_cases": 110,
+        "conservative_fraction": 0.275,
+        "beneficial": true,
+        "framing_qualification": "SPRT's simple-hypothesis framing (H0: J<=T-d, H1: J>=T+d) is beneficial when savings > 0 and error rates are within bounds; conservative near the indifference region boundary where true J falls within..."
+      }
+    }
+  }
+}

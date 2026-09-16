@@ -1,0 +1,13 @@
+[project]
+name = "sprt-minhash-evaluation"
+version = "1.0.0"
+requires-python = ">=3.12"
+description = "Evaluation of SPRT MinHash experiment results"
+dependencies = [
+    "numpy==2.2.6",
+    "scipy==1.16.3",
+    "loguru==0.7.3",
+    "pandas==2.3.3",
+    "matplotlib==3.10.7",
+    "scikit-learn==1.7.2",
+]
