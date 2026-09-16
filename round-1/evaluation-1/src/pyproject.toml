@@ -1,0 +1,10 @@
+[project]
+name = "sprt-minhash-evaluation"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy==2.2.6",
+    "scipy==1.16.3",
+    "scikit-learn==1.7.2",
+    "loguru==0.7.3",
+]
