@@ -1,0 +1,12 @@
+[project]
+name = "dataset-preparation"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "loguru==0.7.3",
+    "pandas==2.3.3",
+    "numpy==2.2.6",
+    "huggingface-hub==1.1.4",
+    "jsonschema==4.25.1",
+    "pyarrow==25.0.0",
+]

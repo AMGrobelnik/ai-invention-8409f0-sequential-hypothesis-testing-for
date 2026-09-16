@@ -1,0 +1,45 @@
+{
+  "datasets": [
+    {
+      "dataset": "sentence-transformers_quora-duplicates",
+      "examples": [
+        {
+          "input": "{\"sentence1\": \"What is the step by step guide to invest in share market in india?\", \"sentence2\": \"What is the step by step guide to invest in share market?\"}",
+          "output": "0",
+          "metadata_fold": 0,
+          "metadata_feature_names": [
+            "sentence1",
+            "sentence2"
+          ],
+          "metadata_task_type": "binary_classification",
+          "metadata_n_classes": 2,
+          "metadata_row_index": 0
+        },
+        {
+          "input": "{\"sentence1\": \"What is the story of Kohinoor (Koh-i-Noor) Diamond?\", \"sentence2\": \"What would happen if the Indian government stole the Kohinoor (Koh-i-Noor) diamond back?\"}",
+          "output": "0",
+          "metadata_fold": 0,
+          "metadata_feature_names": [
+            "sentence1",
+            "sentence2"
+          ],
+          "metadata_task_type": "binary_classification",
+          "metadata_n_classes": 2,
+          "metadata_row_index": 1
+        },
+        {
+          "input": "{\"sentence1\": \"How can I increase the speed of my internet connection while using a VPN?\", \"sentence2\": \"How can Internet speed be increased by hacking through DNS?\"}",
+          "output": "0",
+          "metadata_fold": 0,
+          "metadata_feature_names": [
+            "sentence1",
+            "sentence2"
+          ],
+          "metadata_task_type": "binary_classification",
+          "metadata_n_classes": 2,
+          "metadata_row_index": 2
+        }
+      ]
+    }
+  ]
+}
