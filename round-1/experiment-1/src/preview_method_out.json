@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "method_name": "SPRT MinHash",
+    "description": "MinHash with Sequential Probability Ratio Test early-stopping for near-duplicate detection",
+    "threshold": 0.5,
+    "indifference": 0.1,
+    "num_documents": 700,
+    "num_pairs": 400,
+    "runtime_seconds": 51.240328311920166
+  },
+  "datasets": [
+    {
+      "dataset": "synthetic_stackoverflow",
+      "examples": [
+        {
+          "input": "Pair (120, 699): k=128, alpha=0.05, beta=0.05",
+          "output": "{\"true_label\": false, \"true_jaccard\": 0.1763, \"exhaustive_pred\": false, \"exhaustive_jaccard\": 0.0, \"sprt_pred\": false, \"components_used\": 8, \"k\": 128, \"alpha\": 0.05, \"beta\": 0.05, \"final_llr\": -3.2437...",
+          "predict_exhaustive": "false",
+          "predict_sprt": "false"
+        },
+        {
+          "input": "Pair (179, 173): k=128, alpha=0.05, beta=0.05",
+          "output": "{\"true_label\": false, \"true_jaccard\": 0.0992, \"exhaustive_pred\": false, \"exhaustive_jaccard\": 0.0, \"sprt_pred\": false, \"components_used\": 8, \"k\": 128, \"alpha\": 0.05, \"beta\": 0.05, \"final_llr\": -3.2437...",
+          "predict_exhaustive": "false",
+          "predict_sprt": "false"
+        },
+        {
+          "input": "Pair (360, 512): k=128, alpha=0.05, beta=0.05",
+          "output": "{\"true_label\": false, \"true_jaccard\": 0.185, \"exhaustive_pred\": false, \"exhaustive_jaccard\": 0.0, \"sprt_pred\": false, \"components_used\": 8, \"k\": 128, \"alpha\": 0.05, \"beta\": 0.05, \"final_llr\": -3.2437,...",
+          "predict_exhaustive": "false",
+          "predict_sprt": "false"
+        }
+      ]
+    }
+  ]
+}
