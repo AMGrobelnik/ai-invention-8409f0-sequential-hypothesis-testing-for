@@ -1,0 +1,33 @@
+{
+  "datasets": [
+    {
+      "dataset": "sentence-transformers_quora-duplicates",
+      "examples": [
+        {
+          "input": "{\"row_index\": 200573}",
+          "output": "0",
+          "metadata_row_index": 200573,
+          "predict_sprt": "1",
+          "predict_threshold_truncation": "1",
+          "predict_chernoff": "1"
+        },
+        {
+          "input": "{\"row_index\": 201144}",
+          "output": "0",
+          "metadata_row_index": 201144,
+          "predict_sprt": "0",
+          "predict_threshold_truncation": "0",
+          "predict_chernoff": "0"
+        },
+        {
+          "input": "{\"row_index\": 400565}",
+          "output": "1",
+          "metadata_row_index": 400565,
+          "predict_sprt": "0",
+          "predict_threshold_truncation": "0",
+          "predict_chernoff": "0"
+        }
+      ]
+    }
+  ]
+}

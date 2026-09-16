@@ -1,0 +1,14 @@
+[project]
+name = "minhash-sprt-experiment"
+version = "0.1.0"
+description = "MinHash + SPRT experiment on Quora duplicate pairs"
+requires-python = ">=3.12"
+dependencies = [
+    "ijson==3.5.1",
+    "loguru",
+    "numpy",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
